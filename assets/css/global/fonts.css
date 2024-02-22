@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "SemiBold";
+    src: url("../../docs/fonts/Sora-SemiBold.woff");
+}
+
+@font-face {
+    font-family: "Regular";
+    src: url("../../docs/fonts/Sora-Regular.woff");
+}

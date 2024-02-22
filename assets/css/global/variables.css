@@ -1,0 +1,17 @@
+::root {
+    --color-gradient-1: #0e6be0;
+    --color-gradient-2: #0e36c6;
+    --color-dark-blue: #052784;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray: #d9d9d9;
+
+    --semibold: "SemiBold";
+    --regular: "regular";
+
+    --fs-1: 1.75rem;
+    --fs-2: 1.375rem;
+
+    --size-1: 1rem;
+    --size-2: 1.5rem;
+}
