@@ -1,3 +1,4 @@
+/* Reset do CSS */
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +8,13 @@
     outline: none;
 }
 
+/* Alterando a cor da seleção */
 ::selection {
     background-color: var(--color-dark-blue);
     color: var(--color-white);
 }
 
+/* Estilos do documento */
 html,
 body {
     height: 100%;

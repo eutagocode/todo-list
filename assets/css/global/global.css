@@ -1,0 +1,5 @@
+/* Configurando os arquivos CSS */
+
+@import "./fonts.css";
+@import "./normalize.css";
+@import "./variables.css";
