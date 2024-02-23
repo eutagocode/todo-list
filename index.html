@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- FavIcon da página -->
+        <link
+            rel="shortcut icon"
+            href="./assets/docs/favicons/todo.png"
+            type="image/x-icon"
+        />
+        <!-- Nome da página -->
         <title>To-Do List com JS Puro</title>
-        <link rel="stylesheet" href="./assets/css/index.css" />
+        <!-- Importação do arquivo global do reset CSS -->
+        <link rel="stylesheet" href="./assets/css/global/global.css" />
+        <!-- Importação do arquivo CSS -->
+        <link
+            rel="stylesheet"
+            href="./assets/css/pages/index/partials/style.css"
+        />
     </head>
-    <body></body>
+    <body>
+        <!-- Container -->
+        <div class="container">
+            <!-- Área para adicionar uma tarefa -->
+            <div class="add-task-area">
+                <input
+                    type="text"
+                    placeholder="Digite sua próxima tarefa"
+                    class="add-task-input"
+                />
+                <button class="add-task-button">
+                    <img
+                        src="./assets/docs/images/arrow.svg"
+                        alt="icon arrow"
+                    />
+                </button>
+            </div>
+        </div>
+    </body>
 </html>
