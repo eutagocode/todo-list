@@ -25,17 +25,22 @@
             <!-- Área para adicionar uma tarefa -->
             <div class="add-task-area">
                 <input
+                    id="addTaskInput"
                     type="text"
                     placeholder="Digite sua próxima tarefa"
                     class="add-task-input"
                 />
-                <button class="add-task-button">
+                <button class="add-task-button" id="addTaskButton">
                     <img
                         src="./assets/docs/images/arrow.svg"
                         alt="icon arrow"
                     />
                 </button>
             </div>
+            <!-- Container das Tasks -->
+            <div id="tasks" class="tasks"></div>
         </div>
+        <!-- Importação do arquivo JavaScript -->
+        <script src="./assets/js/app.js"></script>
     </body>
 </html>
