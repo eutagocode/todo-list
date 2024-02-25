@@ -21,7 +21,7 @@ class TaskModel {
 // Função para ler as tarefas
 function readTasks() {
     const tasks = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE) || "[]");
-    let taskElement = "";
+    let tasksElements = "";
 
     // Lendo o array de tarefas e criando o modelo delas
     tasks.map((item) => {
@@ -32,17 +32,17 @@ function readTasks() {
                 <button class="done">
                     <img src="./assets/docs/images/check.svg" alt="Ícone de visto">
                 </button>
-                <button class="trash">
+                <button onclick="deleteTasks(this)" class="trash">
                     <img src="./assets/docs/images/trash.svg" alt="Ícone de lixeira">
                 </button>
             </div>
         </li>
         `;
 
-        taskElement += task;
+        tasksElements += task;
     });
 
-    tasksContainer.innerHTML = taskElement;
+    tasksContainer.innerHTML = tasksElements;
 
     if (tasksContainer.innerHTML == "") {
         tasksContainer.style = "display: none";
@@ -64,6 +64,25 @@ function addTasks() {
     localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(tasks));
 
     addTaskInput.value = "";
+
+    readTasks();
+}
+
+// Função de excluir uma tarefa
+function deleteTasks(element) {
+    const tasks = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE) || "[]");
+
+    tasks.map((item) => {
+        const taskId = element.parentElement.parentElement.id;
+
+        if (taskId == item.id) {
+            const index = tasks.findIndex((data) => data.id === item.id);
+
+            tasks.splice(index, 1);
+
+            localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(tasks));
+        }
+    });
 
     readTasks();
 }
