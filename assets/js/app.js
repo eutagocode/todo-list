@@ -27,9 +27,9 @@ function readTasks() {
     tasks.map((item) => {
         let task = `
         <li class="task" id="${item.id}">
-            <p>${item.text}</p>
+            <p class="">${item.text}</p>
             <div class="manage-task">
-                <button class="done">
+                <button onclick="doneTask(this)" class="done">
                     <img src="./assets/docs/images/check.svg" alt="Ícone de visto">
                 </button>
                 <button onclick="deleteTasks(this)" class="trash">
@@ -85,6 +85,21 @@ function deleteTasks(element) {
     });
 
     readTasks();
+}
+
+// Função de conclusão de tarefa - EM DESENVOLVIMENTO
+function doneTask(element) {
+    const tasks = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE) || "[]");
+
+    tasks.map((item) => {
+        const taskId = element.parentElement.parentElement.id;
+
+        if (taskId == item.id) {
+            !item.done;
+
+            // localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(tasks));
+        }
+    });
 }
 
 // Passando a função addTasks para o evento de click do botão
