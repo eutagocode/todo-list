@@ -128,3 +128,7 @@
 .task .trash:hover {
     background-color: #8f1919;
 }
+
+.line {
+    text-decoration: line-through;
+}
