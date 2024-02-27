@@ -27,7 +27,7 @@ function readTasks() {
     tasks.map((item) => {
         let task = `
         <li class="task" id="${item.id}">
-            <p class="">${item.text}</p>
+            <p class="text">${item.text}</p>
             <div class="manage-task">
                 <button onclick="doneTask(this)" class="done">
                     <img src="./assets/docs/images/check.svg" alt="Ícone de visto">
@@ -87,7 +87,7 @@ function deleteTasks(element) {
     readTasks();
 }
 
-// Função de conclusão de tarefa - EM DESENVOLVIMENTO
+// Função de conclusão de tarefa
 function doneTask(element) {
     const tasks = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE) || "[]");
 
@@ -95,9 +95,18 @@ function doneTask(element) {
         const taskId = element.parentElement.parentElement.id;
 
         if (taskId == item.id) {
-            !item.done;
+            const index = tasks.findIndex((data) => data.id === item.id);
 
-            // localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(tasks));
+            tasks[index].done = !tasks[index].done;
+
+            let text =
+                element.parentElement.parentElement.getElementsByTagName("p");
+
+            for (let p of text) {
+                p.classList.add("line");
+            }
+
+            localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(tasks));
         }
     });
 }
