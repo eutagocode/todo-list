@@ -25,8 +25,9 @@ function readTasks() {
 
     // Lendo o array de tarefas e criando o modelo delas
     tasks.map((item) => {
+        let taskClass = item.done ? "task line" : "task"; // Adiciona a classe line se a tarefa estiver concluída
         let task = `
-        <li class="task" id="${item.id}">
+        <li class="${taskClass}" id="${item.id}">
             <p class="text">${item.text}</p>
             <div class="manage-task">
                 <button onclick="doneTask(this)" class="done">
@@ -54,6 +55,8 @@ function readTasks() {
 // Função para criar uma tarefa
 function addTasks() {
     const inputValue = addTaskInput.value;
+
+    if (addTaskInput.value == "") return;
 
     const task = new TaskModel(inputValue);
 
@@ -99,16 +102,10 @@ function doneTask(element) {
 
             tasks[index].done = !tasks[index].done;
 
-            let text =
-                element.parentElement.parentElement.getElementsByTagName("p");
-
-            for (let p of text) {
-                p.classList.add("line");
-            }
-
             localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(tasks));
         }
     });
+    readTasks();
 }
 
 // Passando a função addTasks para o evento de click do botão
