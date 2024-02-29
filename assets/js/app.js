@@ -6,6 +6,9 @@ const KEY_LOCAL_STORAGE = "tasks";
 const addTaskInput = body.querySelector("#addTaskInput");
 const addTaskButton = body.querySelector("#addTaskButton");
 const tasksContainer = body.querySelector("#tasks");
+const modal = body.querySelector("#modal");
+const editTaskInput = body.querySelector("#editTaskInput");
+const editTaskButton = body.querySelector("#editTaskButton");
 
 window.addEventListener("DOMContentLoaded", readTasks);
 
@@ -28,7 +31,7 @@ function readTasks() {
         let taskClass = item.done ? "task line" : "task"; // Adiciona a classe line se a tarefa estiver concluída
         let task = `
         <li class="${taskClass}" id="${item.id}">
-            <p class="text">${item.text}</p>
+            <p onclick="showModal(this)" class="text">${item.text}</p>
             <div class="manage-task">
                 <button onclick="doneTask(this)" class="done">
                     <img src="./assets/docs/images/check.svg" alt="Ícone de visto">
@@ -106,6 +109,38 @@ function doneTask(element) {
         }
     });
     readTasks();
+}
+
+// Função para mostrar o modal
+function showModal(element) {
+    modal.style.display = "flex";
+
+    // Função para editar a tarefa
+    editTaskButton.addEventListener("click", () => {
+        event.preventDefault();
+
+        const tasks = JSON.parse(
+            localStorage.getItem(KEY_LOCAL_STORAGE) || "[]"
+        );
+
+        tasks.map((item) => {
+            const taskText = element.innerHTML;
+            const editInput = editTaskInput.value;
+
+            if (taskText === item.text) {
+                const index = tasks.findIndex((data) => data.id === item.id);
+
+                tasks[index].text = editInput;
+
+                localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(tasks));
+
+                editTaskInput.value = "";
+
+                modal.style.display = "none";
+            }
+        });
+        readTasks();
+    });
 }
 
 // Passando a função addTasks para o evento de click do botão
