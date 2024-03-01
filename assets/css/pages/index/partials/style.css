@@ -1,3 +1,4 @@
+/* Container da aplicação */
 .container {
     position: relative;
     height: 100%;
@@ -13,9 +14,10 @@
         90deg,
         var(--color-gradient-1) 0%,
         var(--color-gradient-2) 100%
-    );
-}
-
+        );
+    }
+    
+/* Estilos da área para adicionar uma tarefa */
 .add-task-area {
     height: 5.625rem;
     width: 43.25rem;
@@ -68,6 +70,7 @@
     background-color: var(--color-dark-blue);
 }
 
+/* Estilos do container onde vão ser guardadas as tarefas */
 .tasks {
     min-height: 5.5rem;
     height: auto;
@@ -140,6 +143,7 @@
     text-decoration: line-through;
 }
 
+/* Estilos do modal para editar uma tarefa */
 .modal {
     width: 100%;
     height: 100%;
