@@ -1,7 +1,7 @@
 /* Importação do arquivo de estilo de adicionar uma tarefa */
 @import "./add-task.css";
 /* Importação do arquivo de estilo onde mostram as tarefas */
-@import "./all-task.css";
+@import "./all-tasks.css";
 /* Importação do arquivo de estilo de editar uma tarefa */
 @import "./edit-task.css";
 
